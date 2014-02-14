@@ -78,7 +78,7 @@ class nginx::install (
     "/bin/ls | ./configure --prefix=${openresty_path} --with-luajit --with-http_iconv_module -j2 && touch ${prefix}/ngx_openresty-${openresty_version}/.config":
       path    => [ '/bin/', '/sbin/' ,'/usr/bin/','/usr/sbin/' ],
       cwd     => "${prefix}/ngx_openresty-${openresty_version}",
-      require => [ Package['libreadline-dev'], Package['libncurses5-dev'], Package['libpcre3'], Package['libpcre3-dev'], Package['libssl-dev'], Package['perl'], Exec['untar-nginx-source'] ],
+      require => [ Package['readline-devel'], Package['ncurses-devel'], Package['pcre'], Package['pcre-devel'], Package['perl'], Exec['untar-nginx-source'] ],
       creates => "${prefix}/ngx_openresty-${openresty_version}/.config",
       alias   => 'configure-nginx',
       before  => Exec['make-install']
