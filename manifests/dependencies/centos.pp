@@ -1,5 +1,5 @@
 # = Class to manage ubuntu and debian packages
-class nginx::dependencies::ubuntu {
+class nginx::dependencies::centos {
   if ! defined(Package['gcc']) { package { 'gcc': ensure => 'installed', provider => 'yum' } }
   if ! defined(Package['gcc-c++']) { package { 'gcc-c++': ensure => 'installed', provider => 'yum' } }
   if ! defined(Package['kernel-devel']) { package { 'kernel-devel': ensure => 'installed', provider => 'yum' } }
